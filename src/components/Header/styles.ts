@@ -5,12 +5,13 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
 
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 15vh;
   padding: 10px;
 
   background-color: #232323;
+  color: #fff;
 `;
 
 export const HeaderSmallForm = styled.div`
@@ -25,7 +26,7 @@ export const HeaderInput = styled.input`
   display: flex;
   flex-direction: row;
 
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
   border-radius: 10px;
 
@@ -40,7 +41,7 @@ export const HeaderOption = styled.button`
   justify-content: center;
   align-items: center;
 
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
 
   border-radius: 10px;
