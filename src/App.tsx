@@ -1,8 +1,7 @@
 import React from 'react';
-import { PagesTable } from './components';
+import { PagesTable, ProcessTable } from './components';
 import Header from './components/Header';
-import GeradorTabela from './utils/GeradorTabela';
-
+import PagesTableGenerator from './utils/PagesTableGenerator';
 
 
 function App() {
@@ -10,7 +9,12 @@ function App() {
   return (
     <div className="App" style={{backgroundColor: "#333333"}}>
       <Header/>
-      <PagesTable tablePageConfig={GeradorTabela(16)} />
+      <PagesTable tablePageConfig={PagesTableGenerator(16)}/>
+      <ProcessTable process={{
+        pid: "2",
+        processSize: 256,
+        fragmentSize: 50
+      }} />
     </div>
   );
 }
