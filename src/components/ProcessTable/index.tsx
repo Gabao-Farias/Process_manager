@@ -2,7 +2,12 @@ import React, { FC } from 'react';
 import { Process } from '../../Models';
 import { ProcessTableContainer } from './styles';
 
-const ProcessTable : FC<Process> = (processParam) => {
+interface P {
+  process: Process;
+}
+
+
+const ProcessTable : FC<P> = (processParam) => {
   return(
     <ProcessTableContainer>
       Container nhaa
