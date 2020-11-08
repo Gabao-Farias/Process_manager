@@ -10,6 +10,7 @@ export const PagesTableContainer = styled.div`
   color: #fff;
 
   max-width: 300px;
+  border-radius: 10px;
 `;
 
 export const ItemRow = styled.div`
@@ -49,7 +50,7 @@ export const Used = styled.div<PropsPagesTable>`
   display: flex;
   max-width: 30px;
   margin: 5px;
-  background-color: ${(p) => (p.used ? "#3ECC5F" : "#222")};
+  background-color: ${(p) => (p.used ? "#066f2f" : "#222")};
   padding: 4px;
   border: 1px solid #fff;
   border-radius: 10px;
