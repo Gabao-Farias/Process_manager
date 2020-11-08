@@ -9,6 +9,11 @@ interface PagesTableProps {
 const PagesTable : FC<PagesTableProps> = ({tablePageConfig}) => {
   return(
     <PagesTableContainer>
+      <ItemRow>
+        <PageNumber><strong>TPSO</strong></PageNumber>
+        <NPF><strong>NPF</strong></NPF>
+        <Used used={false}><strong>BP</strong></Used>
+      </ItemRow>
       {
         tablePageConfig.map((item) => {
           return(

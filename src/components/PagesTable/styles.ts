@@ -9,7 +9,7 @@ export const PagesTableContainer = styled.div`
   background-color: #777777;
   color: #fff;
 
-  max-width: 300px;
+  width: 300px;
   border-radius: 10px;
 `;
 
