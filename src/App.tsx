@@ -2,6 +2,8 @@ import React from 'react';
 import { PagesTable } from './components';
 import Header from './components/Header';
 
+const array = [{},{},{},{}];
+
 const testParams = [
   {
     pageNumber: "0",
