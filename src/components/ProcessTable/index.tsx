@@ -1,16 +1,22 @@
 import React, { FC } from 'react';
 import { Process } from '../../Models';
-import { ProcessTableContainer } from './styles';
+import { PIDContainer, ProcessTableContainer, TableWrapper, NPF, NPL, TableRow } from './styles';
 
 interface P {
   process: Process;
 }
 
 
-const ProcessTable : FC<P> = (processParam) => {
+const ProcessTable : FC<P> = ({process}) => {
   return(
     <ProcessTableContainer>
-      Container nhaa
+      <PIDContainer>PID: {process.pid}</PIDContainer>
+      <TableWrapper>
+        <TableRow>
+          <NPF><strong>NPF</strong></NPF>
+          <NPL><strong>NPL</strong></NPL>
+        </TableRow>
+      </TableWrapper>
     </ProcessTableContainer>
   );
 }
