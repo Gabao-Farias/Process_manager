@@ -1,18 +1,15 @@
 function GeradorTabela(qpf : number) {
   const objetoDoTipoPageTable = [];
 
-  objetoDoTipoPageTable.push(
+
+ for (let i = 0; i < qpf; i++) {
+    objetoDoTipoPageTable.push(
     {
-      pageNumber: "0",
-      npf: "0000",
+      pageNumber: String(i),
+      npf: (i >>> 0).toString(2),
       used: false
-    },
-    {
-      pageNumber: "1",
-      npf: "0001",
-      used: false
-    }
-  );
+    });
+ }
 
   return objetoDoTipoPageTable;
 }
