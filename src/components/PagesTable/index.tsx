@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PageTable } from '../../Models';
-import { PagesTableContainer, ItemRow, PageNumber, NPF, Used } from './styles';
+import { PagesTableContainer, ItemRow, PageNumber, NPF, Used, MemoryAvailable, InternFragment, SmallHeader } from './styles';
 
 interface PagesTableProps {
   tablePageConfig: PageTable[];
@@ -9,8 +9,14 @@ interface PagesTableProps {
 const PagesTable : FC<PagesTableProps> = ({tablePageConfig}) => {
   return(
     <PagesTableContainer>
+      <SmallHeader>
+        <h3>Tabela de Página de SO</h3>
+        <MemoryAvailable>Memória disponível: {} Bytes | {} %</MemoryAvailable>
+        <InternFragment>Fragmentação interna: {} Bytes | {} %</InternFragment>
+      </SmallHeader>
+
       <ItemRow>
-        <PageNumber><strong>TPSO</strong></PageNumber>
+        <PageNumber><strong>WHATEVER</strong></PageNumber>
         <NPF><strong>NPF</strong></NPF>
         <Used used={false}><strong>BP</strong></Used>
       </ItemRow>

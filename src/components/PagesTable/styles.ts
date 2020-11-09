@@ -9,7 +9,7 @@ export const PagesTableContainer = styled.div`
   background-color: #777777;
   color: #fff;
 
-  width: 300px;
+  width: 350px;
   border-radius: 10px;
 `;
 
@@ -54,4 +54,24 @@ export const Used = styled.div<PropsPagesTable>`
   padding: 4px;
   border: 1px solid #fff;
   border-radius: 10px;
+`;
+
+export const SmallHeader = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+
+  text-align: center;
+`;
+
+export const MemoryAvailable = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+`;
+
+export const InternFragment = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
 `;
