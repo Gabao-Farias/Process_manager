@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
-import { PagesTableSize } from './utils';
+import { PagesTableSize, VerifyAvailablePages } from './utils';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
@@ -18,6 +18,10 @@ function App() {
     setProcessesArray({processArray: []});
   }
 
+  function handleAddNewProcess(){
+    console.log(VerifyAvailablePages(tablePageConfig));
+  }
+
   return (
     <div className="App" style={{backgroundColor: "#333333", minHeight: "100vh"}}>
       <HeaderContainer>
@@ -28,12 +32,12 @@ function App() {
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>2º</strong>
-          <HeaderInput type="number" placeholder="Insira o tamanho do processo em bytes" />
-          <HeaderOption onClick={() => {}}>Adicionar Processo</HeaderOption>
+          <HeaderInput type="number" placeholder="Tamanho do processo (bytes)" />
+          <HeaderOption onClick={() => {handleAddNewProcess()}}>Adicionar Processo</HeaderOption>
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>3º</strong>
-          <HeaderInput type="number" placeholder="Insira o PID do processo" />
+          <HeaderInput type="number" placeholder="PID do processo" />
           <HeaderOption onClick={() => {}}>Remover Processo</HeaderOption>
         </HeaderSmallForm>
       </HeaderContainer>
