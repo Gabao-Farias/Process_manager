@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
-import { PagesTableSize, VerifyAvailablePages } from './utils';
+import { AddNewProcess, GetNpfRefs, PagesTableSize, StartProcessesArray, VerifyAmmountPageProcess, VerifyAvailablePages } from './utils';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
-  const [tamp, setTamp] = useState(1024);
+  const [pageSize, setPageSize] = useState(1024);
   const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(8));
-  const [processesArray, setProcessesArray] = useState({processArray: []});
+  const [processesArray, setProcessesArray] = useState(StartProcessesArray());
 
   function handleDefineTamp(tamp : number){
     setTablePageConfig(
@@ -15,11 +15,15 @@ function App() {
         PagesTableSize(tamp)
       )
     );
-    setProcessesArray({processArray: []});
+    setProcessesArray(StartProcessesArray());
   }
 
-  function handleAddNewProcess(){
-    console.log(VerifyAvailablePages(tablePageConfig));
+  function handleAddNewProcess(newProcessSize : number){
+    if(VerifyAmmountPageProcess(1849, pageSize) <= VerifyAvailablePages(tablePageConfig)){
+      AddNewProcess(pageSize, newProcessSize, processesArray, tablePageConfig);
+    } else {
+      alert("Memória disponível insuficiente para alocação do processo!");
+    }
   }
 
   return (
@@ -27,13 +31,13 @@ function App() {
       <HeaderContainer>
         <HeaderSmallForm>
           <strong>1º</strong>
-          <HeaderInput placeholder="Insira o tamanho da página em bytes" value={tamp} onChange={(e: { target: { value: any; }; }) => {setTamp(Number(e.target.value))}} />
-          <HeaderOption onClick={() => handleDefineTamp(tamp)}>Definir tamanho da página</HeaderOption>
+          <HeaderInput placeholder="Insira o tamanho da página em bytes" value={pageSize} onChange={(e: { target: { value: any; }; }) => {setPageSize(Number(e.target.value))}} />
+          <HeaderOption onClick={() => handleDefineTamp(pageSize)}>Definir tamanho da página</HeaderOption>
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>2º</strong>
           <HeaderInput type="number" placeholder="Tamanho do processo (bytes)" />
-          <HeaderOption onClick={() => {handleAddNewProcess()}}>Adicionar Processo</HeaderOption>
+          <HeaderOption onClick={(e) => {}}>Adicionar Processo</HeaderOption>
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>3º</strong>
@@ -43,8 +47,8 @@ function App() {
       </HeaderContainer>
 
       <DashboardWrapper
-        left={<PagesTable tamp={tamp} tablePageConfig={tablePageConfig}/>}
-        right={<ProcessesArray tamp={tamp} processArray={processesArray} />}
+        left={<PagesTable tamp={pageSize} tablePageConfig={tablePageConfig}/>}
+        right={<ProcessesArray tamp={pageSize} processArray={processesArray} />}
       />
     </div>
   );
