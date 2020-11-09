@@ -14,7 +14,7 @@ const ProcessTable : FC<P> = ({process, tamp}) => {
 
   return(
     <ProcessTableContainer>
-      <SmallHeader>
+      <SmallHeader key="processHeader">
         <h3>PID: {process.pid}</h3>
         <SmallHeaderDetails>Tamanho processo: {process.processSize}</SmallHeaderDetails>
         <SmallHeaderDetails>Páginas ocupadas: {process.busyPages}</SmallHeaderDetails>
@@ -33,7 +33,7 @@ const ProcessTable : FC<P> = ({process, tamp}) => {
           process.npfRefs.map((item) => {
             npl++;
             return(
-              <TableRow>
+              <TableRow key={npl}>
                 <NPF>{item}</NPF>
                 <NPL>{(npl >>> 0).toString(2)}</NPL>
               </TableRow>

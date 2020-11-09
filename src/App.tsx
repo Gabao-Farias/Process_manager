@@ -1,52 +1,21 @@
 import React, { useState } from 'react';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
+import { PagesTableSize } from './utils';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
-  const [tamp, setTamp] = useState(4);
-  const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(0));
-  const [processesArray, setProcessesArray] = useState(
-    {processArray: [
-    {
-      pid: "28252",
-      npfRefs: [
-        "010",
-        "011",
-        "1011",
-        "1101011"
-      ],
-      processSize: 256,
-      busyPages: 2,
-    },
-    {
-      pid: "28252",
-      npfRefs: [
-        "010",
-        "011",
-        "1011",
-        "1101011"
-      ],
-      processSize: 256,
-      busyPages: 2,
-    },
-    {
-      pid: "28252",
-      npfRefs: [
-        "010",
-        "011",
-        "1011",
-        "1101011"
-      ],
-      processSize: 256,
-      busyPages: 2,
-    },
-  ]});
+  const [tamp, setTamp] = useState(1024);
+  const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(8));
+  const [processesArray, setProcessesArray] = useState({processArray: []});
 
-  function handleDefineTamp(n : number){
+  function handleDefineTamp(tamp : number){
     setTablePageConfig(
-      PagesTableGenerator(n)
+      PagesTableGenerator(
+        PagesTableSize(tamp)
+      )
     );
+    setProcessesArray({processArray: []});
   }
 
   return (
@@ -70,7 +39,7 @@ function App() {
       </HeaderContainer>
 
       <DashboardWrapper
-        left={<PagesTable tablePageConfig={tablePageConfig}/>}
+        left={<PagesTable tamp={tamp} tablePageConfig={tablePageConfig}/>}
         right={<ProcessesArray tamp={tamp} processArray={processesArray} />}
       />
     </div>

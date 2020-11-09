@@ -14,7 +14,7 @@ const ProcessesArray : FC<ProcessArrayProps> = ({processArray : {processArray}, 
       <h1 style={{textAlign: "center"}}>Processos Alocados: {processArray.length} </h1>
       {
         processArray.map((process) => {
-          return <ProcessTable process={process} tamp={tamp} />
+          return <ProcessTable key={process.pid} process={process} tamp={tamp} />
         })
       }
     </ProcessArrayContainer>

@@ -64,14 +64,7 @@ export const SmallHeader = styled.div`
   text-align: center;
 `;
 
-export const MemoryAvailable = styled.div`
-  background-color: #555555;
-  border-radius: 10px;
-  padding: 5px;
-  text-align: left;
-`;
-
-export const InternFragment = styled.div`
+export const HeaderItem = styled.div`
   background-color: #555555;
   border-radius: 10px;
   padding: 5px;
