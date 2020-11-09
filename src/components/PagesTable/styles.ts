@@ -9,7 +9,7 @@ export const PagesTableContainer = styled.div`
   background-color: #777777;
   color: #fff;
 
-  width: 350px;
+  width: 320px;
   border-radius: 10px;
 `;
 
@@ -68,10 +68,12 @@ export const MemoryAvailable = styled.div`
   background-color: #555555;
   border-radius: 10px;
   padding: 5px;
+  text-align: left;
 `;
 
 export const InternFragment = styled.div`
   background-color: #555555;
   border-radius: 10px;
   padding: 5px;
+  text-align: left;
 `;

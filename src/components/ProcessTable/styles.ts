@@ -2,15 +2,28 @@ import styled from 'styled-components';
 
 export const ProcessTableContainer = styled.div`
   padding: 10px;
+  margin: 10px;
   background-color: #777777;
   color: #fff;
 
-  width: 300px;
+  width: 340;
   border-radius: 10px;
-
 `;
 
-export const PIDContainer = styled.h2``;
+export const SmallHeader = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+
+  text-align: center;
+`;
+
+export const SmallHeaderDetails = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: left;
+`;
 
 export const TableWrapper = styled.div``;
 

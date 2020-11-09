@@ -16,7 +16,7 @@ const PagesTable : FC<PagesTableProps> = ({tablePageConfig}) => {
       </SmallHeader>
 
       <ItemRow>
-        <PageNumber><strong>WHATEVER</strong></PageNumber>
+        <PageNumber><strong>NP</strong></PageNumber>
         <NPF><strong>NPF</strong></NPF>
         <Used used={false}><strong>BP</strong></Used>
       </ItemRow>

@@ -1,11 +1,47 @@
 import React, { useState } from 'react';
-import { DashboardWrapper, PagesTable, ProcessTable } from './components';
+import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
-  const [tamp, setTamp] = useState(16);
-  const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(16));
+  const [tamp, setTamp] = useState(4);
+  const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(0));
+  const [processesArray, setProcessesArray] = useState(
+    {processArray: [
+    {
+      pid: "28252",
+      npfRefs: [
+        "010",
+        "011",
+        "1011",
+        "1101011"
+      ],
+      processSize: 256,
+      busyPages: 2,
+    },
+    {
+      pid: "28252",
+      npfRefs: [
+        "010",
+        "011",
+        "1011",
+        "1101011"
+      ],
+      processSize: 256,
+      busyPages: 2,
+    },
+    {
+      pid: "28252",
+      npfRefs: [
+        "010",
+        "011",
+        "1011",
+        "1101011"
+      ],
+      processSize: 256,
+      busyPages: 2,
+    },
+  ]});
 
   function handleDefineTamp(n : number){
     setTablePageConfig(
@@ -18,7 +54,7 @@ function App() {
       <HeaderContainer>
         <HeaderSmallForm>
           <strong>1º</strong>
-          <HeaderInput value={tamp} onChange={(e: { target: { value: any; }; }) => {setTamp(Number(e.target.value))}} placeholder="Insira o tamanho da página em Bytes" />
+          <HeaderInput placeholder="Insira o tamanho da página em bytes" value={tamp} onChange={(e: { target: { value: any; }; }) => {setTamp(Number(e.target.value))}} />
           <HeaderOption onClick={() => handleDefineTamp(tamp)}>Definir tamanho da página</HeaderOption>
         </HeaderSmallForm>
         <HeaderSmallForm>
@@ -35,15 +71,7 @@ function App() {
 
       <DashboardWrapper
         left={<PagesTable tablePageConfig={tablePageConfig}/>}
-        right={
-          <ProcessTable process={{
-            pid: "28252",
-            processSize: 256,
-            busyPages: 2,
-            fragmentSize: 50
-            }
-          }/>
-        }
+        right={<ProcessesArray tamp={tamp} processArray={processesArray} />}
       />
     </div>
   );
