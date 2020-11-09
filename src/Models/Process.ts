@@ -1,6 +1,7 @@
 interface Process {
   pid: string;
   processSize: number;
+  busyPages: number;
   fragmentSize: number;
 }
 
