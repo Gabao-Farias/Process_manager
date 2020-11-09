@@ -5,3 +5,6 @@ export { default as InternFragment } from './InternFragment';
 export { default as InternFragmentPercentage } from './InternFragmentPercentage';
 export { default as PagesTableSize } from './PagesTableSize';
 export { default as PagesSize } from './PagesSize';
+export { default as VerifyAvailablePages } from './VerifyAvailablePages';
+export { default as VerifyAvailableMemory } from './VerifyAvailableMemory';
+export { default as VerifyAvailableMemoryPercentage } from './VerifyAvailableMemoryPercentage';

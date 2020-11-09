@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { PageTable } from '../../Models';
-import { PagesSize } from '../../utils';
+import { PagesSize, VerifyAvailableMemory, VerifyAvailableMemoryPercentage } from '../../utils';
 import { PagesTableContainer, ItemRow, PageNumber, NPF, Used, HeaderItem, SmallHeader } from './styles';
 
 interface PagesTableProps {
@@ -13,7 +13,7 @@ const PagesTable : FC<PagesTableProps> = ({tablePageConfig, tamp}) => {
     <PagesTableContainer>
       <SmallHeader>
         <h3>Tabela de Página de SO</h3>
-        <HeaderItem>Memória disponível: {} Bytes | {} %</HeaderItem>
+        <HeaderItem>Memória disponível: {VerifyAvailableMemory(tablePageConfig, tamp)} Bytes | {VerifyAvailableMemoryPercentage(tablePageConfig)}%</HeaderItem>
         <HeaderItem>Fragmentação interna: {} Bytes | {} %</HeaderItem>
         <HeaderItem>Nº de Páginas Físicas: {PagesSize(tamp)} bits</HeaderItem>
       </SmallHeader>
