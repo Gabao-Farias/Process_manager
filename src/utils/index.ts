@@ -8,3 +8,7 @@ export { default as PagesSize } from './PagesSize';
 export { default as VerifyAvailablePages } from './VerifyAvailablePages';
 export { default as VerifyAvailableMemory } from './VerifyAvailableMemory';
 export { default as VerifyAvailableMemoryPercentage } from './VerifyAvailableMemoryPercentage';
+export { default as AddNewProcess } from './AddNewProcess';
+export { default as VerifyAmmountPageProcess } from './VerifyAmmountPageProcess';
+export { default as GetNpfRefs } from './GetNpfRefs';
+export { default as StartProcessesArray } from './StartProcessesArray';

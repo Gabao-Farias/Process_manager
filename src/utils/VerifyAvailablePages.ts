@@ -5,7 +5,7 @@ const VerifyAvailablePages = (pageTable : PageTable[]) => {
   const objetoDoTipoPageTable = pageTable;
 
   for (let i = 0; i < objetoDoTipoPageTable.length; i++)
-    objetoDoTipoPageTable[i].used ? null : availablePages++
+    objetoDoTipoPageTable[i].used ? null : availablePages++;
 
   return availablePages;
 }

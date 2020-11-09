@@ -6,7 +6,7 @@ function PagesTableGenerator(qpf : number) {
     {
       pageNumber: String(i),
       npf: (i >>> 0).toString(2),
-      used: false
+      used: ((i % 2 === 0)? true : false)
     });
   }
 

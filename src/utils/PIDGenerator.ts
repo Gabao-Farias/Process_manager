@@ -1,16 +1,16 @@
-import { ProcessArray } from "../Models";
+import { Process } from "../Models";
 
-const PIDGenarator = (ProcessesArray : ProcessArray) => {
+const PIDGenarator = (ProcessesArray : Process[]) => {
   let newID = 0;
   let flag = false;
   let i = 0;
   let j = 0;
 
-  while(j < ProcessesArray.processArray.length){
+  while(j < ProcessesArray.length){
       i = 0;
       flag = false;
-      while(i < ProcessesArray.processArray.length && flag === false){  //faz a busca enquanto não encontra...
-          if(newID === Number(ProcessesArray.processArray[i].pid)){    //se houver igual
+      while(i < ProcessesArray.length && flag === false){  //faz a busca enquanto não encontra...
+          if(newID === Number(ProcessesArray[i].pid)){    //se houver igual
               flag=true;
           }
           i++;
