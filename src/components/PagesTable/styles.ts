@@ -9,12 +9,12 @@ export const PagesTableContainer = styled.div`
   background-color: #777777;
   color: #fff;
 
-  max-width: 300px;
+  border-radius: 10px;
 `;
 
 export const ItemRow = styled.div`
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 0.8fr;
   grid-template-rows: 1fr;
   grid-template-areas: 'tpso npf bp';
 
@@ -47,10 +47,24 @@ export const NPF = styled.div`
 export const Used = styled.div<PropsPagesTable>`
   flex: 1;
   display: flex;
-  max-width: 30px;
   margin: 5px;
-  background-color: ${(p) => (p.used ? "#3ECC5F" : "#222")};
+  background-color: ${(p) => (p.used ? "#066f2f" : "#222")};
   padding: 4px;
   border: 1px solid #fff;
   border-radius: 10px;
+`;
+
+export const SmallHeader = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+
+  text-align: center;
+`;
+
+export const HeaderItem = styled.div`
+  background-color: #555555;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: left;
 `;

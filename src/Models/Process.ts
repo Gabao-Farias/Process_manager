@@ -1,7 +1,8 @@
 interface Process {
   pid: string;
   processSize: number;
-  fragmentSize: number;
+  npfRefs: string[];
+  busyPages: number;
 }
 
 export default Process;

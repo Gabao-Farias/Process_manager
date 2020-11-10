@@ -1,3 +1,5 @@
+export { default as DashboardWrapper } from './DashboardWrapper';
 export { default as Header } from './Header';
 export { default as PagesTable } from './PagesTable';
-export { default as Switch } from './Switch';
+export { default as ProcessTable } from './ProcessTable';
+export { default as ProcessesArray } from './ProcessesArray';
