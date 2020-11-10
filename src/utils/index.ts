@@ -12,3 +12,5 @@ export { default as AddNewProcess } from './AddNewProcess';
 export { default as VerifyAmmountPageProcess } from './VerifyAmmountPageProcess';
 export { default as GetNpfRefs } from './GetNpfRefs';
 export { default as StartProcessesArray } from './StartProcessesArray';
+export { default as AddNewProcessPageTableConfig } from './AddNewProcessPageTableConfig';
+export { default as GetNewProcessOnly } from './GetNewProcessOnly';
