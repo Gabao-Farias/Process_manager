@@ -17,11 +17,13 @@ import PagesTableGenerator from './utils/PagesTableGenerator';
 function App() {
   const [pidInput, setPidInput] = useState("");
   const [pageSize, setPageSize] = useState(1024);
+  const [pageSizeInput, setPageSizeInput] = useState(1024);
   const [processSize, setProcessSize] = useState(0);
   const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(8));
   const [processesArray, setProcessesArray] = useState(StartProcessesArray());
 
   function handleDefinePageSize(tamp : number){
+    setPageSize(tamp);
     setTablePageConfig(
       PagesTableGenerator(
         PagesTableSize(tamp)
@@ -55,11 +57,11 @@ function App() {
         <HeaderSmallForm>
           <strong>1º</strong>
           <HeaderInput
-            value={pageSize}
-            onChange={(e) => {setPageSize(Number(e.target.value))}}
+            value={pageSizeInput}
+            onChange={(e) => {setPageSizeInput(Number(e.target.value))}}
             placeholder="Insira o tamanho da página em bytes"
           />
-          <HeaderOption onClick={() => handleDefinePageSize(pageSize)}>Definir tamanho da página</HeaderOption>
+          <HeaderOption onClick={() => handleDefinePageSize(pageSizeInput)}>Definir tamanho da página</HeaderOption>
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>2º</strong>
