@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
-import { AddNewProcess, AddNewProcessPageTableConfig, DestroyProcess, DestroyProcessPageTable, GetNewProcessOnly, PagesTableSize, ProcessExists, StartProcessesArray, VerifyAmmountPageProcess, VerifyAvailablePages } from './utils';
+import { AddNewProcess,
+  AddNewProcessPageTableConfig,
+  DestroyProcess,
+  DestroyProcessPageTable,
+  GetNewProcessOnly,
+  PagesTableSize,
+  ProcessExists,
+  StartProcessesArray,
+  VerifyAmmountPageProcess,
+  VerifyAvailablePages
+} from './utils';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
