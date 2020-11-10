@@ -1,7 +1,7 @@
 import { Process } from "../Models";
 
 const PIDGenarator = (ProcessesArray : Process[]) => {
-  let newID = 0;
+  let newID = 1;
   let flag = false;
   let i = 0;
   let j = 0;
