@@ -14,3 +14,7 @@ export { default as GetNpfRefs } from './GetNpfRefs';
 export { default as StartProcessesArray } from './StartProcessesArray';
 export { default as AddNewProcessPageTableConfig } from './AddNewProcessPageTableConfig';
 export { default as GetNewProcessOnly } from './GetNewProcessOnly';
+export { default as GetProcessToBeDestroyed } from './GetProcessToBeDestroyed';
+export { default as DestroyProcessPageTable } from './DestroyProcessPageTable';
+export { default as DestroyProcess } from './DestroyProcess';
+export { default as ProcessExists } from './ProcessExists';

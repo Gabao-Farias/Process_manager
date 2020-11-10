@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
-import { AddNewProcess, AddNewProcessPageTableConfig, GetNewProcessOnly, PagesTableSize, StartProcessesArray, VerifyAmmountPageProcess, VerifyAvailablePages } from './utils';
+import { AddNewProcess, AddNewProcessPageTableConfig, DestroyProcess, DestroyProcessPageTable, GetNewProcessOnly, PagesTableSize, ProcessExists, StartProcessesArray, VerifyAmmountPageProcess, VerifyAvailablePages } from './utils';
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
+  const [pidInput, setPidInput] = useState("");
   const [pageSize, setPageSize] = useState(1024);
   const [processSize, setProcessSize] = useState(0);
   const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(8));
@@ -22,12 +23,19 @@ function App() {
   function handleAddNewProcess(newProcessSize : number){
     if(VerifyAmmountPageProcess(newProcessSize, pageSize) <= VerifyAvailablePages(tablePageConfig)){
       setProcessesArray(AddNewProcess(pageSize, newProcessSize, processesArray, tablePageConfig));
-      console.log("processesArray");
       console.log(processesArray);
-      console.log("table");
-      AddNewProcessPageTableConfig(tablePageConfig, GetNewProcessOnly(pageSize, newProcessSize, processesArray, tablePageConfig));
+      setTablePageConfig(AddNewProcessPageTableConfig(tablePageConfig, GetNewProcessOnly(pageSize, newProcessSize, processesArray, tablePageConfig)));
     } else {
       alert("Memória disponível insuficiente para alocação do processo!");
+    }
+  }
+
+  function handleDestroyProcess(PID: string) {
+    if(ProcessExists(PID, processesArray)){
+      setTablePageConfig(DestroyProcessPageTable(PID, processesArray, tablePageConfig));
+      setProcessesArray(DestroyProcess(PID, processesArray));
+    } else {
+      alert("Não existe nenhum PID correspondente nos processos alocados!");
     }
   }
 
@@ -54,8 +62,12 @@ function App() {
         </HeaderSmallForm>
         <HeaderSmallForm>
           <strong>3º</strong>
-          <HeaderInput type="number" placeholder="PID do processo" />
-          <HeaderOption onClick={() => {}}>Remover Processo</HeaderOption>
+          <HeaderInput
+            value={pidInput}
+            onChange={(e) => {setPidInput(e.target.value)}}
+            placeholder="PID do processo"
+          />
+          <HeaderOption onClick={() => {handleDestroyProcess(pidInput)}}>Remover Processo</HeaderOption>
         </HeaderSmallForm>
       </HeaderContainer>
 

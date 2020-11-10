@@ -1,10 +1,18 @@
-import { PageTable, Process } from "../Models";
+import { Process } from "../Models";
 
-const AddNewProcess = (param : Process, tpso : PageTable) => {
-  return(null);
+const DestroyProcess = (PID : string, processes : Process[]) : Process[] => {
+  const newProcessesArray : Process[] = [];
+
+  processes.map((process) => {
+    if(process.pid !== PID){
+      newProcessesArray.push(process);
+    }
+  })
+
+  return(newProcessesArray);
 }
 
-export default AddNewProcess;
+export default DestroyProcess;
 
 // matemátics
 // Limpar o used;

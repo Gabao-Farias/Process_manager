@@ -1,20 +1,33 @@
 import { PageTable, Process } from "../Models";
 
-const AddNewProcessPageTableConfig = (pageTable : PageTable[], newProcess: Process) => {
-  var newPageTableConfig = [];
+const AddNewProcessPageTableConfig = (tablePageConfig : PageTable[], newProcess: Process) : PageTable[] =>  {
+  const newPageTableConfig : PageTable[] = [];
+  const processToBeAdded : Process = newProcess;
   var i = 0;
+  var flag = false;
+  var j;
 
-  newPageTableConfig = pageTable.map((row) => {
-    i = 0;
-    while(i < newProcess.npfRefs.length){
-      if(row.npf === newProcess.npfRefs[i]){
-        row.used = true;
+  while(i < tablePageConfig.length){
+    j = 0;
+    flag = false;
+    while(j < processToBeAdded.npfRefs.length){
+      if(processToBeAdded.npfRefs[j] === tablePageConfig[i].npf){
+        tablePageConfig[i].used = true;
+        newPageTableConfig.push(tablePageConfig[i]);
+        flag = true;
+        j = processToBeAdded.npfRefs.length;
       }
-      i++;
+      j++;
     }
-  });
 
-  console.log(newPageTableConfig);
+    if(flag === false){
+      newPageTableConfig.push(tablePageConfig[i]);
+    }
+    
+    i++;
+  }
+
+  return(newPageTableConfig);
 }
 
 export default AddNewProcessPageTableConfig;
