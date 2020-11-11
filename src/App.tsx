@@ -57,6 +57,7 @@ function App() {
         <HeaderSmallForm>
           <strong>1º</strong>
           <HeaderInput
+            type="number"
             value={pageSizeInput}
             onChange={(e) => {setPageSizeInput(Number(e.target.value))}}
             placeholder="Insira o tamanho da página em bytes"
@@ -84,7 +85,7 @@ function App() {
       </HeaderContainer>
 
       <DashboardWrapper
-        left={<PagesTable tamp={pageSize} tablePageConfig={tablePageConfig}/>}
+        left={<PagesTable tamp={pageSize} tablePageConfig={tablePageConfig} processArray={processesArray}/>}
         right={<ProcessesArray tamp={pageSize} processArray={processesArray} />}
       />
     </div>

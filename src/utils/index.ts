@@ -18,3 +18,5 @@ export { default as GetProcessToBeDestroyed } from './GetProcessToBeDestroyed';
 export { default as DestroyProcessPageTable } from './DestroyProcessPageTable';
 export { default as DestroyProcess } from './DestroyProcess';
 export { default as ProcessExists } from './ProcessExists';
+export { default as InternFragmentPageTable } from './InternFragmentPageTable';
+export { default as InternFragmentPageTablePercentage } from './InternFragmentPageTablePercentage';

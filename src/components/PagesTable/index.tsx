@@ -1,20 +1,29 @@
 import React, { FC } from 'react';
-import { PageTable } from '../../Models';
-import { PagesSize, VerifyAvailableMemory, VerifyAvailableMemoryPercentage } from '../../utils';
+import { PageTable, Process } from '../../Models';
+import { InternFragmentPageTable, InternFragmentPageTablePercentage, PagesSize, VerifyAvailableMemory, VerifyAvailableMemoryPercentage } from '../../utils';
 import { PagesTableContainer, ItemRow, PageNumber, NPF, Used, HeaderItem, SmallHeader } from './styles';
 
 interface PagesTableProps {
   tablePageConfig: PageTable[];
   tamp: number;
+  processArray: Process[];
 }
 
-const PagesTable : FC<PagesTableProps> = ({tablePageConfig, tamp}) => {
+const PagesTable : FC<PagesTableProps> = ({tablePageConfig, tamp, processArray}) => {
   return(
     <PagesTableContainer>
       <SmallHeader>
         <h3>Tabela de Página de SO</h3>
-        <HeaderItem>Memória disponível: {VerifyAvailableMemory(tablePageConfig, tamp)} Bytes | {VerifyAvailableMemoryPercentage(tablePageConfig)}%</HeaderItem>
-        <HeaderItem>Fragmentação interna: {} Bytes | {} %</HeaderItem>
+        <HeaderItem>Memória disponível: {
+          VerifyAvailableMemory(tablePageConfig, tamp)} Bytes |
+        {
+          Math.round(VerifyAvailableMemoryPercentage(tablePageConfig))
+        }%</HeaderItem>
+        <HeaderItem>Fragmentação interna: {
+          InternFragmentPageTable(processArray, tamp)
+        } Bytes | {
+          Math.round(InternFragmentPageTablePercentage(processArray, tamp))
+        }%</HeaderItem>
         <HeaderItem>Nº de Páginas Físicas: {PagesSize(tamp)} bits</HeaderItem>
       </SmallHeader>
 
