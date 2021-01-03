@@ -15,6 +15,7 @@ import { AddNewProcess,
 import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
+  const [lastPIDAdded, setLastPIDAdded] = useState(0);
   const [pidInput, setPidInput] = useState("");
   const [pageSize, setPageSize] = useState(1024);
   const [pageSizeInput, setPageSizeInput] = useState(1024);
@@ -34,9 +35,10 @@ function App() {
 
   function handleAddNewProcess(newProcessSize : number){
     if(VerifyAmmountPageProcess(newProcessSize, pageSize) <= VerifyAvailablePages(tablePageConfig)){
-      setProcessesArray(AddNewProcess(pageSize, newProcessSize, processesArray, tablePageConfig));
+      setLastPIDAdded(lastPIDAdded + 1);
+      setProcessesArray(AddNewProcess(pageSize, newProcessSize, processesArray, lastPIDAdded, tablePageConfig));
       console.log(processesArray);
-      setTablePageConfig(AddNewProcessPageTableConfig(tablePageConfig, GetNewProcessOnly(pageSize, newProcessSize, processesArray, tablePageConfig)));
+      setTablePageConfig(AddNewProcessPageTableConfig(tablePageConfig, GetNewProcessOnly(pageSize, newProcessSize, lastPIDAdded, tablePageConfig)));
     } else {
       alert("Memória disponível insuficiente para alocação do processo!");
     }
