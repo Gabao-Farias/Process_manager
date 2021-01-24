@@ -8,7 +8,7 @@ interface ProcessArrayProps {
   tamp: number;
 }
 
-const ProcessesArray : FC<ProcessArrayProps> = ({processArray : processArray, tamp}) => {
+const ProcessesArray : FC<ProcessArrayProps> = ({processArray, tamp}) => {
   return(
     <ProcessArrayContainer>
       <h1 style={{textAlign: "center"}}>Processos Alocados: {processArray.length} </h1>
