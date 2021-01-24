@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import { PIDGenerator } from '../../utils';
 import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
 
 interface HeaderProps {
