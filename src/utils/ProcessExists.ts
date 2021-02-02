@@ -1,5 +1,3 @@
-import { Process } from "../Models";
-
 const ProcessExists = (PID: string, processes: Process[]) : boolean => {
   var i = 0;
   while(i < processes.length){

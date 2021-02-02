@@ -1,5 +1,4 @@
 import { InternFragmentPageTable } from ".";
-import { Process } from "../Models";
 
 const InternFragmentPageTablePercentage = (processes : Process[], pageSize : number) => {
   const availableMemory = 8 * 1024;

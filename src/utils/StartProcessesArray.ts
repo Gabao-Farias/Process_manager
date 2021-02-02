@@ -1,5 +1,3 @@
-import { Process } from "../Models";
-
 const StartProcessesArray = () : Process[] => {
   return([]);
 }

@@ -1,4 +1,3 @@
-import { Process } from "../Models";
 import InternFragment from "./InternFragment";
 
 const InternFragmentPageTable = (processes : Process[], pageSize : number) => {

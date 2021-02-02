@@ -1,5 +1,3 @@
-import { PageTable } from "../Models";
-
 const VerifyAvailablePages = (pageTable : PageTable[]) : Number => {
   var availablePages = 0;
   const objetoDoTipoPageTable = pageTable;

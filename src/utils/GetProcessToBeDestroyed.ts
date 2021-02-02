@@ -1,5 +1,3 @@
-import { Process } from "../Models";
-
 const GetProcessToBeDestroyed = (PID : string, processes : Process[]) : Process => {
   var erroneusProcess = {
     pid: "",

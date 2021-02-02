@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { PageTable, Process } from '../../Models';
 import { InternFragmentPageTable, InternFragmentPageTablePercentage, PagesSize, VerifyAvailableMemory, VerifyAvailableMemoryPercentage } from '../../utils';
 import { PagesTableContainer, ItemRow, PageNumber, NPF, Used, HeaderItem, SmallHeader } from './styles';
 

@@ -1,5 +1,4 @@
 import { GetNpfRefs, VerifyAmmountPageProcess } from ".";
-import { PageTable, Process } from "../Models";
 import PIDGenarator from "./PIDGenerator";
 
 const GetNewProcessOnly = (tamp: number, newProcessSize : number, lastPIDAdded: number, tablePageConfig : PageTable[]) : Process => {

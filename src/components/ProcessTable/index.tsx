@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Process } from '../../Models';
 import { InternFragment, InternFragmentPercentage } from '../../utils';
 import { ProcessTableContainer, TableWrapper, NPF, NPL, TableRow, SmallHeader, SmallHeaderDetails } from './styles';
 

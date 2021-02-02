@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Process } from "../../Models";
 import ProcessTable from '../ProcessTable';
 import { ProcessArrayContainer } from './styles';
 

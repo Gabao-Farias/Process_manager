@@ -1,5 +1,3 @@
-import { Process } from "../Models";
-
 const DestroyProcess = (PID : string, processes : Process[]) : Process[] => {
   var i = 0;
   const newProcessesArray : Process[] = [];

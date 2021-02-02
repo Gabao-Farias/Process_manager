@@ -1,4 +1,3 @@
-import { PageTable } from "../Models";
 import VerifyAvailablePages from "./VerifyAvailablePages";
 
 const VerifyAvailableMemoryPercentage = (pageTable : PageTable[]) => {
