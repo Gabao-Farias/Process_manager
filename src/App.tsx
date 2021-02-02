@@ -54,7 +54,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={{backgroundColor: "#333333", minHeight: "100vh"}}>
+    <div className="App" style={{backgroundColor: "#0D1117", minHeight: "100vh"}}>
       <HeaderContainer>
         <HeaderSmallForm>
           <strong>1º</strong>
