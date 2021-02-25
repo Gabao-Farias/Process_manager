@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ProcessTable from '../ProcessTable';
-import { ProcessArrayContainer } from './styles';
+import { ProcessArrayContainer, Title } from './styles';
 
 interface ProcessArrayProps {
   processArray: Process[];
@@ -10,7 +10,7 @@ interface ProcessArrayProps {
 const ProcessesArray : FC<ProcessArrayProps> = ({processArray, tamp}) => {
   return(
     <ProcessArrayContainer>
-      <h1 style={{textAlign: "center"}}>Processos Alocados: {processArray.length} </h1>
+      <Title>Processos Alocados: {processArray.length} </Title>
       {
         processArray.map((process) => {
           return <ProcessTable key={process.pid} process={process} tamp={tamp} />

@@ -1,28 +1,25 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: row;
 
   justify-content: space-around;
   align-items: center;
-  height: 15vh;
+  /* height: 15vh; */
   padding: 10px;
 
   background-color: #161B22;
   color: #fff;
 `;
 
-export const HeaderSmallForm = styled.div`
-  flex: 1;
+export const HeaderSmallForm = styled.div`  
   display: flex;
   flex-direction: column;
   max-width: 300px;
 `;
 
 export const HeaderInput = styled.input`
-  flex: 1;
   display: flex;
   flex-direction: row;
 
@@ -34,7 +31,6 @@ export const HeaderInput = styled.input`
 `;
 
 export const HeaderOption = styled.button`
-  flex: 1;
   display: flex;
   flex-direction: column;
   

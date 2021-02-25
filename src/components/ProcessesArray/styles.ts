@@ -7,3 +7,8 @@ export const ProcessArrayContainer = styled.div`
 
   padding: 10px;
 `;
+
+export const Title = styled.h1`
+  color: #fff;
+  text-align: center;
+`;

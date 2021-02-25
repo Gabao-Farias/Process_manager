@@ -4,6 +4,11 @@ export const DashboardWrapperContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 export const Left = styled.div`
@@ -11,8 +16,7 @@ export const Left = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
-  width: 50vw;
+  padding: 25px;  
 `;
 
 export const Right = styled.div`
@@ -21,5 +25,4 @@ export const Right = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 25px;
-  width: 50vw;
 `;
