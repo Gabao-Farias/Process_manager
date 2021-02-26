@@ -18,10 +18,9 @@ export const ItemRow = styled.div`
   grid-template-rows: 1fr;
   grid-template-areas: 'tpso npf bp';
 
-  border: 1px solid #ffffff;
   border-radius: 10px;
 
-  margin: 5px;
+  /* margin: 5px; */
 `;
 
 export const PageNumber = styled.div`
@@ -29,8 +28,7 @@ export const PageNumber = styled.div`
   display: flex;
   margin: 5px;
   background-color: #222;
-  padding: 4px;
-  border: 1px solid #fff;
+  padding: 4px 10px;
   border-radius: 10px;
 `;
 
@@ -39,25 +37,24 @@ export const NPF = styled.div`
   display: flex;
   margin: 5px;
   background-color: #222;
-  padding: 4px;
-  border: 1px solid #fff;
+  padding: 4px 10px;
   border-radius: 10px;
 `;
 
-export const Used = styled.div<PropsPagesTable>`
-  flex: 1;
+export const Used = styled.div<PropsPagesTable>`  
   display: flex;
   margin: 5px;
-  background-color: ${(p) => (p.used ? "#066f2f" : "#222")};
-  padding: 4px;
-  border: 1px solid #fff;
+  background-color: ${({used}) => (used ? "#15ff11" : "#222")};
+  color: ${({used}) => (used ? "#000" : "#fff")};
+  padding: 4px 10px;
   border-radius: 10px;
 `;
 
 export const SmallHeader = styled.div`
   background-color: #555555;
   border-radius: 10px;
-  padding: 5px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
 
   text-align: center;
 `;
@@ -66,5 +63,5 @@ export const HeaderItem = styled.div`
   background-color: #555555;
   border-radius: 10px;
   padding: 5px;
-  text-align: left;
+  text-align: center;
 `;

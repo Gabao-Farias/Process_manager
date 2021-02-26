@@ -14,12 +14,12 @@ export const SmallHeader = styled.div`
   background-color: #555555;
   border-radius: 10px;
   padding: 5px;
+  margin-bottom: 16px;
 
   text-align: center;
 `;
 
 export const SmallHeaderDetails = styled.div`
-  background-color: #555555;
   border-radius: 10px;
   padding: 5px;
   text-align: left;
@@ -33,7 +33,6 @@ export const TableRow = styled.div`
   grid-template-rows: 1fr;
   grid-template-areas: 'npl npf';
 
-  border: 1px solid #ffffff;
   border-radius: 10px;
 
   margin: 5px;
@@ -44,8 +43,7 @@ export const NPF = styled.div`
   display: flex;
   margin: 5px;
   background-color: #222;
-  padding: 4px;
-  border: 1px solid #fff;
+  padding: 4px 10px;
   border-radius: 10px;
 `;
 
@@ -54,7 +52,6 @@ export const NPL = styled.div`
   display: flex;
   margin: 5px;
   background-color: #222;
-  padding: 4px;
-  border: 1px solid #fff;
+  padding: 4px 10px;
   border-radius: 10px;
 `;

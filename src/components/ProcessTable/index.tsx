@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { InternFragment, InternFragmentPercentage } from '../../utils';
 import { ProcessTableContainer, TableWrapper, NPF, NPL, TableRow, SmallHeader, SmallHeaderDetails } from './styles';
 
-interface P {
+interface ProcessTableProps {
   process: Process;
   tamp: number
 }
 
 
-const ProcessTable : FC<P> = ({process, tamp}) => {
+const ProcessTable : FC<ProcessTableProps> = ({process, tamp}) => {
   var npl = -1;
 
   return(

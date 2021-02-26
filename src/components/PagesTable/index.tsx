@@ -13,17 +13,22 @@ const PagesTable : FC<PagesTableProps> = ({tablePageConfig, tamp, processArray})
     <PagesTableContainer>
       <SmallHeader>
         <h3>Tabela de Página de SO</h3>
-        <HeaderItem>Memória disponível: {
-          VerifyAvailableMemory(tablePageConfig, tamp)} Bytes |
-        {
+        <HeaderItem>Memória disponível
+          <br></br>
+          {
+          VerifyAvailableMemory(tablePageConfig, tamp)} Bytes | {
           Math.round(VerifyAvailableMemoryPercentage(tablePageConfig))
         }%</HeaderItem>
-        <HeaderItem>Fragmentação interna: {
+        <HeaderItem>Fragmentação interna:
+          <br></br>
+          {
           InternFragmentPageTable(processArray, tamp)
         } Bytes | {
           Math.round(InternFragmentPageTablePercentage(processArray, tamp))
         }%</HeaderItem>
-        <HeaderItem>Nº de Páginas Físicas: {PagesSize(tamp)} bits</HeaderItem>
+        <HeaderItem>Nº de Páginas Físicas:
+          <br></br>
+          {PagesSize(tamp)} bits</HeaderItem>
       </SmallHeader>
 
       <ItemRow key={"header"}>
