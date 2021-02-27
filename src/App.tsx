@@ -7,14 +7,15 @@ import { AddNewProcess,
   DestroyProcessPageTable,
   GetNewProcessOnly,
   PagesTableSize,
+  PagesTableGenerator,
   ProcessExists,
   StartProcessesArray,
   VerifyAmmountPageProcess,
   VerifyAvailablePages
 } from './utils';
-import PagesTableGenerator from './utils/PagesTableGenerator';
 
 function App() {
+  const [colorTheme, setColorTheme] = useState<'dark' | 'light'>('dark');
   const [lastPIDAdded, setLastPIDAdded] = useState(0);
   const [pidInput, setPidInput] = useState("");
   const [pageSize, setPageSize] = useState(1024);
@@ -22,6 +23,14 @@ function App() {
   const [processSize, setProcessSize] = useState(0);
   const [tablePageConfig, setTablePageConfig] = useState(PagesTableGenerator(8));
   const [processesArray, setProcessesArray] = useState(StartProcessesArray());
+
+  function handleColorThemeChange(){
+    if(colorTheme === 'dark') {
+      setColorTheme('light');
+    } else {
+      setColorTheme('dark');
+    }
+  }
 
   function handleDefinePageSize(tamp : number){
     setPageSize(tamp);
@@ -87,8 +96,9 @@ function App() {
       </HeaderContainer>
 
       <DashboardWrapper
-        left={<PagesTable tamp={pageSize} tablePageConfig={tablePageConfig} processArray={processesArray}/>}
-        right={<ProcessesArray tamp={pageSize} processArray={processesArray} />}
+        colorTheme={colorTheme}
+        leftChildren={<PagesTable choice={colorTheme} tamp={pageSize} tablePageConfig={tablePageConfig} processArray={processesArray}/>}
+        rightChildren={<ProcessesArray choice={colorTheme} tamp={pageSize} processArray={processesArray} />}
       />
     </div>
   );

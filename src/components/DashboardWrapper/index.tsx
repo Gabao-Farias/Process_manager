@@ -1,16 +1,17 @@
 import React, { FC } from 'react';
 import { DashboardWrapperContainer, Left, Right } from './styles';
 
-interface Children {
-  left: React.ReactNode;
-  right: React.ReactNode;
+interface DashboardWrapperProps {
+  colorTheme: "dark" | "light";
+  leftChildren: React.ReactNode;
+  rightChildren: React.ReactNode;
 }
 
-const DashboardWrapper : FC<Children> = ({left, right}) => {
+const DashboardWrapper : FC<DashboardWrapperProps> = ({leftChildren, rightChildren}) => {
   return(
     <DashboardWrapperContainer>
-      <Left>{left}</Left>
-      <Right>{right}</Right>
+      <Left>{leftChildren}</Left>
+      <Right>{rightChildren}</Right>
     </DashboardWrapperContainer>
   );
 }

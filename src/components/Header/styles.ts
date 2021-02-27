@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   /* height: 15vh; */
   padding: 10px;
 
-  background-color: #161B22;
+  background-color: #f16;
   color: #fff;
 `;
 

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { ColorsTheme } from '../../utils';
 
 interface PropsPagesTable {
   used: boolean;
 }
 
-export const PagesTableContainer = styled.div`
+export const PagesTableContainer = styled.div<ThemeChoice>`
   padding: 10px;
-  background-color: #777777;
-  color: #fff;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.dark};
+  color: ${({choice}) => ColorsTheme[choice]?.text.main};
 
   border-radius: 10px;
 `;
@@ -19,39 +20,28 @@ export const ItemRow = styled.div`
   grid-template-areas: 'tpso npf bp';
 
   border-radius: 10px;
-
-  /* margin: 5px; */
 `;
 
-export const PageNumber = styled.div`
+export const SimpleRow = styled.div<ThemeChoice>`
   flex: 1;
   display: flex;
   margin: 5px;
-  background-color: #222;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   padding: 4px 10px;
   border-radius: 10px;
 `;
 
-export const NPF = styled.div`
-  flex: 1;
+export const Used = styled.div<PropsPagesTable & ThemeChoice>`
   display: flex;
   margin: 5px;
-  background-color: #222;
+  background-color: ${({used, choice}) => (used ? ColorsTheme[choice]?.primary.light : ColorsTheme[choice]?.environment.light)};
+  color: ${({used, choice}) => (used ? ColorsTheme[choice]?.text.dark : ColorsTheme[choice]?.text.main)};
   padding: 4px 10px;
   border-radius: 10px;
 `;
 
-export const Used = styled.div<PropsPagesTable>`  
-  display: flex;
-  margin: 5px;
-  background-color: ${({used}) => (used ? "#15ff11" : "#222")};
-  color: ${({used}) => (used ? "#000" : "#fff")};
-  padding: 4px 10px;
-  border-radius: 10px;
-`;
-
-export const SmallHeader = styled.div`
-  background-color: #555555;
+export const SmallHeader = styled.div<ThemeChoice>`
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.lighter};
   border-radius: 10px;
   padding: 16px 20px;
   margin-bottom: 16px;
@@ -59,8 +49,9 @@ export const SmallHeader = styled.div`
   text-align: center;
 `;
 
-export const HeaderItem = styled.div`
-  background-color: #555555;
+export const HeaderItem = styled.div<ThemeChoice>`
+  margin: 5px 0px;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   border-radius: 10px;
   padding: 5px;
   text-align: center;
