@@ -4,7 +4,13 @@ export const ColorsTheme: DarkLightTheme = {
     warning: "#edbe47",
     success: "#47ed9a",
     info: "#478fed",
-    text: "#f7f7f7",
+    text: {
+      darker: "#000000",
+      dark: "#141414",
+      main: "#e7ebe6",
+      light: "#eef2ed",
+      lighter: "#f5f5f5",
+    },
     primary: {
       darker: "#1b8028",
       dark: "#23ad35",
@@ -25,7 +31,13 @@ export const ColorsTheme: DarkLightTheme = {
     warning: "#edbe47",
     success: "#47ed9a",
     info: "#478fed",
-    text: "#2b2b2b",
+    text: {
+      darker: "#000000",
+      dark: "#141414",
+      main: "#212121",
+      light: "#eef2ed",
+      lighter: "#f5f5f5",
+    },
     primary: {
       darker: "#1b8028",
       dark: "#23ad35",

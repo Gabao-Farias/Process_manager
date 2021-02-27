@@ -11,14 +11,19 @@ declare type ColorTheme = {
   warning: string;
   success: string;
   info: string;
-  text: string;
+  text: ColorSetVariant;
   primary: ColorSetVariant;
   secondary?: ColorSetVariant;
   tertiary?: ColorSetVariant;
+  accent?: ColorSetVariant;
   environment: ColorSetVariant;
-}
+};
 
 declare type DarkLightTheme = {
   light?: ColorTheme;
   dark: ColorTheme;
+};
+
+declare type ThemeChoice = {
+  choice: "dark" | "light";
 }
