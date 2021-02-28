@@ -1,23 +1,24 @@
 import React, { FC } from 'react';
 import { InternFragment, InternFragmentPercentage } from '../../utils';
-import { ProcessTableContainer, TableWrapper, NPF, NPL, TableRow, SmallHeader, SmallHeaderDetails } from './styles';
+import { ProcessTableContainer, TableWrapper, ItemRow, TableRow, SmallHeader, SmallHeaderDetails } from './styles';
 
 interface ProcessTableProps {
   process: Process;
-  tamp: number
+  tamp: number;
+  choice: "dark" | "light";
 }
 
 
-const ProcessTable : FC<ProcessTableProps> = ({process, tamp}) => {
+const ProcessTable : FC<ProcessTableProps> = ({process, tamp, choice}) => {
   var npl = -1;
 
   return(
-    <ProcessTableContainer>
-      <SmallHeader key="processHeader">
+    <ProcessTableContainer choice={choice}>
+      <SmallHeader choice={choice} key="processHeader">
         <h3>PID: {process.pid}</h3>
-        <SmallHeaderDetails>Tamanho processo: {process.processSize}</SmallHeaderDetails>
-        <SmallHeaderDetails>Páginas ocupadas: {process.busyPages}</SmallHeaderDetails>
-        <SmallHeaderDetails>Fragmentação interna: {
+        <SmallHeaderDetails choice={choice}>Tamanho processo<br></br>{process.processSize}</SmallHeaderDetails>
+        <SmallHeaderDetails choice={choice}>Páginas ocupadas<br></br>{process.busyPages}</SmallHeaderDetails>
+        <SmallHeaderDetails choice={choice}>Fragmentação interna<br></br>{
             InternFragment(tamp, process.busyPages, process.processSize)
           } Bytes | {
             InternFragmentPercentage(tamp, process.busyPages, process.processSize)
@@ -25,16 +26,16 @@ const ProcessTable : FC<ProcessTableProps> = ({process, tamp}) => {
       </SmallHeader>
       <TableWrapper>
         <TableRow>
-          <NPF><strong>NPF</strong></NPF>
-          <NPL><strong>NPL</strong></NPL>
+          <ItemRow choice={choice}><strong>NPF</strong></ItemRow>
+          <ItemRow choice={choice}><strong>NPL</strong></ItemRow>
         </TableRow>
         {
           process.npfRefs.map((item) => {
             npl++;
             return(
               <TableRow key={npl}>
-                <NPF>{item}</NPF>
-                <NPL>{(npl >>> 0).toString(2)}</NPL>
+                <ItemRow choice={choice}>{item}</ItemRow>
+                <ItemRow choice={choice}>{(npl >>> 0).toString(2)}</ItemRow>
               </TableRow>
             )
           })

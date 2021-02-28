@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Switch from 'react-switch';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
-import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
+import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput, Wrapper } from './styles';
 import { AddNewProcess,
   AddNewProcessPageTableConfig,
   DestroyProcess,
@@ -11,11 +12,12 @@ import { AddNewProcess,
   ProcessExists,
   StartProcessesArray,
   VerifyAmmountPageProcess,
-  VerifyAvailablePages
+  VerifyAvailablePages,
 } from './utils';
 
 function App() {
-  const [colorTheme, setColorTheme] = useState<'dark' | 'light'>('dark');
+  const [themeSwitch, setThemeSwtich] = useState(false);
+  const [colorTheme, setColorTheme] = useState<'dark' | 'light'>('light');
   const [lastPIDAdded, setLastPIDAdded] = useState(0);
   const [pidInput, setPidInput] = useState("");
   const [pageSize, setPageSize] = useState(1024);
@@ -25,11 +27,12 @@ function App() {
   const [processesArray, setProcessesArray] = useState(StartProcessesArray());
 
   function handleColorThemeChange(){
-    if(colorTheme === 'dark') {
+    setThemeSwtich(!themeSwitch);
+    if(themeSwitch) {
       setColorTheme('light');
-    } else {
-      setColorTheme('dark');
+      return;
     }
+    setColorTheme('dark');
   }
 
   function handleDefinePageSize(tamp : number){
@@ -63,43 +66,43 @@ function App() {
   }
 
   return (
-    <div className="App" style={{backgroundColor: "#0D1117", minHeight: "100vh"}}>
-      <HeaderContainer>
-        <HeaderSmallForm>
-          <strong>1º</strong>
-          <HeaderInput
-            type="number"
-            value={pageSizeInput}
-            onChange={(e) => {setPageSizeInput(Number(e.target.value))}}
-            placeholder="Insira o tamanho da página em bytes"
-          />
-          <HeaderOption onClick={() => handleDefinePageSize(pageSizeInput)}>Definir tamanho da página</HeaderOption>
-        </HeaderSmallForm>
-        <HeaderSmallForm>
-          <strong>2º</strong>
-          <HeaderInput
-            value={processSize}
-            onChange={(e) => {setProcessSize(Number(e.target.value))}}
-            placeholder="Tamanho do processo (bytes)"
-          />
-          <HeaderOption onClick={() => {handleAddNewProcess(processSize)}}>Adicionar Processo</HeaderOption>
-        </HeaderSmallForm>
-        <HeaderSmallForm>
-          <strong>3º</strong>
-          <HeaderInput
-            value={pidInput}
-            onChange={(e) => {setPidInput(e.target.value)}}
-            placeholder="PID do processo"
-          />
-          <HeaderOption onClick={() => {handleDestroyProcess(pidInput)}}>Remover Processo</HeaderOption>
-        </HeaderSmallForm>
-      </HeaderContainer>
+    <div className="App">
+      <Wrapper choice={colorTheme}>
+        <HeaderContainer choice={colorTheme}>
+        <Switch checkedIcon={false} uncheckedIcon={false} checked={themeSwitch} onChange={() => handleColorThemeChange()} />
+          <HeaderSmallForm choice={colorTheme}>
+            <HeaderInput
+              type="number"
+              value={pageSizeInput}
+              onChange={(e) => {setPageSizeInput(Number(e.target.value))}}
+              placeholder="Insira o tamanho da página em bytes"
+            />
+            <HeaderOption onClick={() => handleDefinePageSize(pageSizeInput)}>Definir tamanho da página</HeaderOption>
+          </HeaderSmallForm>
+          <HeaderSmallForm choice={colorTheme}>            
+            <HeaderInput
+              value={processSize}
+              onChange={(e) => {setProcessSize(Number(e.target.value))}}
+              placeholder="Tamanho do processo (bytes)"
+            />
+            <HeaderOption onClick={() => {handleAddNewProcess(processSize)}}>Adicionar Processo</HeaderOption>
+          </HeaderSmallForm>
+          <HeaderSmallForm choice={colorTheme}>
+            <HeaderInput
+              value={pidInput}
+              onChange={(e) => {setPidInput(e.target.value)}}
+              placeholder="PID do processo"
+            />
+            <HeaderOption onClick={() => {handleDestroyProcess(pidInput)}}>Remover Processo</HeaderOption>
+          </HeaderSmallForm>
+        </HeaderContainer>
 
-      <DashboardWrapper
-        colorTheme={colorTheme}
-        leftChildren={<PagesTable choice={colorTheme} tamp={pageSize} tablePageConfig={tablePageConfig} processArray={processesArray}/>}
-        rightChildren={<ProcessesArray choice={colorTheme} tamp={pageSize} processArray={processesArray} />}
-      />
+        <DashboardWrapper
+          colorTheme={colorTheme}
+          leftChildren={<PagesTable choice={colorTheme} tamp={pageSize} tablePageConfig={tablePageConfig} processArray={processesArray}/>}
+          rightChildren={<ProcessesArray choice={colorTheme} tamp={pageSize} processArray={processesArray} />}
+        />
+      </Wrapper>
     </div>
   );
 }

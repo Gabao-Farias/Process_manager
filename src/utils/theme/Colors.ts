@@ -12,9 +12,9 @@ export const ColorsTheme: DarkLightTheme = {
       lighter: "#f5f5f5",
     },
     primary: {
-      darker: "#1b8028",
-      dark: "#23ad35",
-      main: "#30db47",
+      darker: "#094f12",
+      dark: "#0a7017",
+      main: "#10b324",
       light: "#35f04e",
       lighter: "#69ff7c"
     },
@@ -39,9 +39,9 @@ export const ColorsTheme: DarkLightTheme = {
       lighter: "#f5f5f5",
     },
     primary: {
-      darker: "#1b8028",
-      dark: "#23ad35",
-      main: "#30db47",
+      darker: "#094f12",
+      dark: "#0a7017",
+      main: "#10b324",
       light: "#35f04e",
       lighter: "#69ff7c"
     },

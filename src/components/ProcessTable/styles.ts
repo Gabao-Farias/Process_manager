@@ -1,28 +1,34 @@
 import styled from 'styled-components';
+import { ColorsTheme } from '../../utils';
 
-export const ProcessTableContainer = styled.div`
+export const ProcessTableContainer = styled.div<ThemeChoice>`
   padding: 10px;
   margin: 10px;
-  background-color: #777777;
-  color: #fff;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.dark};
+  color: ${({choice}) => ColorsTheme[choice]?.text.main};
 
-  width: 340;
+  max-width: 300;
   border-radius: 10px;
+  transition: 0.4s;
 `;
 
-export const SmallHeader = styled.div`
-  background-color: #555555;
+export const SmallHeader = styled.div<ThemeChoice>`
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.lighter};
   border-radius: 10px;
-  padding: 5px;
+  padding: 16px 20px;
   margin-bottom: 16px;
 
   text-align: center;
+  transition: 0.4s;
 `;
 
-export const SmallHeaderDetails = styled.div`
+export const SmallHeaderDetails = styled.div<ThemeChoice>`
   border-radius: 10px;
+  margin: 8px 0px;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   padding: 5px;
-  text-align: left;
+  text-align: center;
+  transition: 0.4s;
 `;
 
 export const TableWrapper = styled.div``;
@@ -38,20 +44,12 @@ export const TableRow = styled.div`
   margin: 5px;
 `;
 
-export const NPF = styled.div`
+export const ItemRow = styled.div<ThemeChoice>`
   flex: 1;
   display: flex;
   margin: 5px;
-  background-color: #222;
+  background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   padding: 4px 10px;
   border-radius: 10px;
-`;
-
-export const NPL = styled.div`
-  flex: 1;
-  display: flex;
-  margin: 5px;
-  background-color: #222;
-  padding: 4px 10px;
-  border-radius: 10px;
+  transition: 0.4s;
 `;
