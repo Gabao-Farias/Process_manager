@@ -11,6 +11,7 @@ export const PagesTableContainer = styled.div<ThemeChoice>`
   color: ${({choice}) => ColorsTheme[choice]?.text.main};
 
   border-radius: 10px;
+  transition: 0.4s;
 `;
 
 export const ItemRow = styled.div`
@@ -29,6 +30,7 @@ export const SimpleRow = styled.div<ThemeChoice>`
   background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   padding: 4px 10px;
   border-radius: 10px;
+  transition: 0.4s;
 `;
 
 export const Used = styled.div<PropsPagesTable & ThemeChoice>`
@@ -38,6 +40,7 @@ export const Used = styled.div<PropsPagesTable & ThemeChoice>`
   color: ${({used, choice}) => (used ? ColorsTheme[choice]?.text.dark : ColorsTheme[choice]?.text.main)};
   padding: 4px 10px;
   border-radius: 10px;
+  transition: 0.4s;
 `;
 
 export const SmallHeader = styled.div<ThemeChoice>`
@@ -47,12 +50,14 @@ export const SmallHeader = styled.div<ThemeChoice>`
   margin-bottom: 16px;
 
   text-align: center;
+  transition: 0.4s;
 `;
 
 export const HeaderItem = styled.div<ThemeChoice>`
-  margin: 5px 0px;
+  margin: 8px 0px;
   background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
   border-radius: 10px;
   padding: 5px;
   text-align: center;
+  transition: 0.4s;
 `;

@@ -20,14 +20,14 @@ const PagesTable : FC<PagesTableProps> = ({tablePageConfig, tamp, processArray, 
           VerifyAvailableMemory(tablePageConfig, tamp)} Bytes | {
           Math.round(VerifyAvailableMemoryPercentage(tablePageConfig))
         }%</HeaderItem>
-        <HeaderItem choice={choice}>Fragmentação interna:
+        <HeaderItem choice={choice}>Fragmentação interna
           <br></br>
           {
           InternFragmentPageTable(processArray, tamp)
         } Bytes | {
           Math.round(InternFragmentPageTablePercentage(processArray, tamp))
         }%</HeaderItem>
-        <HeaderItem choice={choice}>Nº de Páginas Físicas:
+        <HeaderItem choice={choice}>Nº de Páginas Físicas
           <br></br>
           {PagesSize(tamp)} bits</HeaderItem>
       </SmallHeader>
