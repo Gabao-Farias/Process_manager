@@ -8,13 +8,13 @@ interface ProcessArrayProps {
   choice: "dark" | "light";
 }
 
-const ProcessesArray : FC<ProcessArrayProps> = ({processArray, tamp}) => {
+const ProcessesArray : FC<ProcessArrayProps> = ({processArray, tamp, choice}) => {
   return(
     <ProcessArrayContainer>
-      <Title>Processos Alocados: {processArray.length} </Title>
+      <Title choice={choice}>Processos Alocados: {processArray.length} </Title>
       {
         processArray.map((process) => {
-          return <ProcessTable key={process.pid} process={process} tamp={tamp} />
+          return <ProcessTable choice={choice} key={process.pid} process={process} tamp={tamp} />
         })
       }
     </ProcessArrayContainer>
