@@ -16,7 +16,7 @@ const ProcessTable : FC<ProcessTableProps> = ({process, tamp, choice}) => {
     <ProcessTableContainer choice={choice}>
       <SmallHeader choice={choice} key="processHeader">
         <h3>PID: {process.pid}</h3>
-        <SmallHeaderDetails choice={choice}>Tamanho processo<br></br>{process.processSize}</SmallHeaderDetails>
+        <SmallHeaderDetails choice={choice}>Tamanho processo<br></br>{process.processSize} Bytes</SmallHeaderDetails>
         <SmallHeaderDetails choice={choice}>Páginas ocupadas<br></br>{process.busyPages}</SmallHeaderDetails>
         <SmallHeaderDetails choice={choice}>Fragmentação interna<br></br>{
             InternFragment(tamp, process.busyPages, process.processSize)
