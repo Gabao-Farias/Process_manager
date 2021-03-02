@@ -3,7 +3,7 @@ import { ColorsTheme } from '../../utils';
 
 export const ProcessTableContainer = styled.div<ThemeChoice>`
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0px;
   background-color: ${({choice}) => ColorsTheme[choice]?.environment.dark};
   color: ${({choice}) => ColorsTheme[choice]?.text.main};
 

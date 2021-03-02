@@ -10,8 +10,8 @@ interface ProcessArrayProps {
 
 const ProcessesArray : FC<ProcessArrayProps> = ({processArray, tamp, choice}) => {
   return(
-    <ProcessArrayContainer>
-      <Title choice={choice}>Processos Alocados: {processArray.length} </Title>
+    <ProcessArrayContainer choice={choice}>
+      <Title choice={choice}>Processos Alocados<br></br>{processArray.length}</Title>
       {
         processArray.map((process) => {
           return <ProcessTable choice={choice} key={process.pid} process={process} tamp={tamp} />
