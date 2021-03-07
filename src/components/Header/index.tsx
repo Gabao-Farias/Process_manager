@@ -1,23 +1,43 @@
 import React, { FC, useState } from 'react';
-import { HeaderContainer, HeaderOption, HeaderSmallForm, HeaderInput } from './styles';
+import {
+  HeaderContainer,
+  HeaderOption,
+  HeaderSmallForm,
+  HeaderInput
+} from './styles';
 
 interface HeaderProps {
   defineTamp: (tamp: number) => {};
 }
 
-const Header : FC<HeaderProps> = ({defineTamp}) => {
+const Header: FC<HeaderProps> = ({ defineTamp }) => {
   const [tamp, setTamp] = useState(16);
 
-  return(
+  return (
     <HeaderContainer>
       <HeaderSmallForm>
         <strong>1º</strong>
-        <HeaderInput value={tamp} onChange={(e) => {setTamp(Number(e.target.value))}} placeholder="Insira o tamanho da página em Bytes" />
-        <HeaderOption onClick={() => {defineTamp(tamp)}}>Definir tamanho da página</HeaderOption>
+        <HeaderInput
+          value={tamp}
+          onChange={(e) => {
+            setTamp(Number(e.target.value));
+          }}
+          placeholder="Insira o tamanho da página em Bytes"
+        />
+        <HeaderOption
+          onClick={() => {
+            defineTamp(tamp);
+          }}
+        >
+          Definir tamanho da página
+        </HeaderOption>
       </HeaderSmallForm>
       <HeaderSmallForm>
         <strong>2º</strong>
-        <HeaderInput type="number" placeholder="Insira o tamanho do processo em bytes" />
+        <HeaderInput
+          type="number"
+          placeholder="Insira o tamanho do processo em bytes"
+        />
         <HeaderOption onClick={() => {}}>Adicionar Processo</HeaderOption>
       </HeaderSmallForm>
       <HeaderSmallForm>
@@ -27,6 +47,6 @@ const Header : FC<HeaderProps> = ({defineTamp}) => {
       </HeaderSmallForm>
     </HeaderContainer>
   );
-}
+};
 
 export default Header;
