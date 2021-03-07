@@ -1,18 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
+import { ThemeChoice } from '../../contexts';
 import ProcessTable from '../ProcessTable';
 import { ProcessArrayContainer, Title } from './styles';
 
 interface ProcessArrayProps {
   processArray: Process[];
   tamp: number;
-  choice: 'dark' | 'light';
 }
 
-const ProcessesArray: FC<ProcessArrayProps> = ({
-  processArray,
-  tamp,
-  choice
-}) => {
+const ProcessesArray: FC<ProcessArrayProps> = ({ processArray, tamp }) => {
+  const { choice } = useContext(ThemeChoice);
+
   return (
     <ProcessArrayContainer choice={choice}>
       <Title choice={choice}>
@@ -20,14 +18,7 @@ const ProcessesArray: FC<ProcessArrayProps> = ({
         {processArray.length}
       </Title>
       {processArray.map((process) => {
-        return (
-          <ProcessTable
-            choice={choice}
-            key={process.pid}
-            process={process}
-            tamp={tamp}
-          />
-        );
+        return <ProcessTable key={process.pid} process={process} tamp={tamp} />;
       })}
     </ProcessArrayContainer>
   );

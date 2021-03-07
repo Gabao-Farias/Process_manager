@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
+import { ThemeChoice } from '../../contexts';
 import {
   InternFragmentPageTable,
   InternFragmentPageTablePercentage,
@@ -19,15 +20,15 @@ interface PagesTableProps {
   tablePageConfig: PageTable[];
   tamp: number;
   processArray: Process[];
-  choice: 'dark' | 'light';
 }
 
 const PagesTable: FC<PagesTableProps> = ({
   tablePageConfig,
   tamp,
-  processArray,
-  choice
+  processArray
 }) => {
+  const { choice } = useContext(ThemeChoice);
+
   return (
     <PagesTableContainer choice={choice}>
       <SmallHeader choice={choice}>
@@ -58,7 +59,7 @@ const PagesTable: FC<PagesTableProps> = ({
         <SimpleRow choice={choice}>
           <strong>NPF</strong>
         </SimpleRow>
-        <Used choice={choice} used={false}>
+        <Used used={false} choice={choice}>
           <strong>BP</strong>
         </Used>
       </ItemRow>
@@ -67,7 +68,7 @@ const PagesTable: FC<PagesTableProps> = ({
           <ItemRow key={item.pageNumber}>
             <SimpleRow choice={choice}>{item.pageNumber}</SimpleRow>
             <SimpleRow choice={choice}>{item.npf}</SimpleRow>
-            <Used choice={choice} used={item.used}>
+            <Used used={item.used} choice={choice}>
               {item.used ? 1 : 0}
             </Used>
           </ItemRow>

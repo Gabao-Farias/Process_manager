@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
+import { ThemeChoice } from '../../contexts';
 import { InternFragment, InternFragmentPercentage } from '../../utils';
 import {
   ProcessTableContainer,
@@ -12,10 +13,10 @@ import {
 interface ProcessTableProps {
   process: Process;
   tamp: number;
-  choice: 'dark' | 'light';
 }
 
-const ProcessTable: FC<ProcessTableProps> = ({ process, tamp, choice }) => {
+const ProcessTable: FC<ProcessTableProps> = ({ process, tamp }) => {
+  const { choice } = useContext(ThemeChoice);
   var npl = -1;
 
   return (

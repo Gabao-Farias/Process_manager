@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { DashboardWrapperContainer, Left, Right } from './styles';
 
 interface DashboardWrapperProps {
-  colorTheme: 'dark' | 'light';
   leftChildren: React.ReactNode;
   rightChildren: React.ReactNode;
 }
