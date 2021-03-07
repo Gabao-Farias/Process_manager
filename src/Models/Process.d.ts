@@ -3,4 +3,4 @@ declare type Process = {
   processSize: number;
   npfRefs: string[];
   busyPages: number;
-}
+};

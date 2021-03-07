@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   color: #fff;
 `;
 
-export const HeaderSmallForm = styled.div`  
+export const HeaderSmallForm = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 300px;
@@ -33,7 +33,7 @@ export const HeaderInput = styled.input`
 export const HeaderOption = styled.button`
   display: flex;
   flex-direction: column;
-  
+
   justify-content: center;
   align-items: center;
 

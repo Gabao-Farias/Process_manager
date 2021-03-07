@@ -25,5 +25,5 @@ declare type DarkLightTheme = {
 };
 
 declare type ThemeChoice = {
-  choice: "dark" | "light";
-}
+  choice: 'dark' | 'light';
+};

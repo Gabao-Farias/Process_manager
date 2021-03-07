@@ -1,12 +1,12 @@
-const ProcessExists = (PID: string, processes: Process[]) : boolean => {
+const ProcessExists = (PID: string, processes: Process[]): boolean => {
   var i = 0;
-  while(i < processes.length){
-    if(PID === processes[i].pid){
-      return(true);
+  while (i < processes.length) {
+    if (PID === processes[i].pid) {
+      return true;
     }
     i++;
   }
-  return(false);
-}
+  return false;
+};
 
 export default ProcessExists;

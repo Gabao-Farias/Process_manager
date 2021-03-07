@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ColorsTheme } from './utils';
 
 export const Wrapper = styled.div<ThemeChoice>`
-  background-color: ${({choice}) => ColorsTheme[choice]?.environment.darker};
+  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.darker};
   min-height: 100vh;
   transition: 0.4s;
 `;
@@ -18,8 +18,8 @@ export const HeaderContainer = styled.div<ThemeChoice>`
   min-height: 15vh;
   padding: 10px;
 
-  background-color: ${({choice}) => ColorsTheme[choice]?.environment.light};
-  color: ${({choice}) => ColorsTheme[choice]?.text.main};
+  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.light};
+  color: ${({ choice }) => ColorsTheme[choice]?.text.main};
 
   transition: 0.4s;
 `;
@@ -30,7 +30,7 @@ export const HeaderSmallForm = styled.div<ThemeChoice>`
   margin: 10px;
   border-radius: 10px;
   flex-direction: column;
-  background-color: ${({choice}) => ColorsTheme[choice]?.environment.lighter};
+  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.lighter};
   min-width: 300px;
   transition: 0.4s;
 `;
@@ -51,7 +51,7 @@ export const HeaderOption = styled.button`
   flex: 1;
   display: flex;
   flex-direction: column;
-  
+
   justify-content: center;
   align-items: center;
 

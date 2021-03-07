@@ -1,16 +1,16 @@
-const DestroyProcess = (PID : string, processes : Process[]) : Process[] => {
+const DestroyProcess = (PID: string, processes: Process[]): Process[] => {
   var i = 0;
-  const newProcessesArray : Process[] = [];
+  const newProcessesArray: Process[] = [];
 
-  while(i < processes.length){
-    if(processes[i].pid !== PID){
+  while (i < processes.length) {
+    if (processes[i].pid !== PID) {
       newProcessesArray.push(processes[i]);
     }
     i++;
   }
 
-  return(newProcessesArray);
-}
+  return newProcessesArray;
+};
 
 export default DestroyProcess;
 

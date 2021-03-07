@@ -1,15 +1,18 @@
-const AddNewProcessPageTableConfig = (tablePageConfig : PageTable[], newProcess: Process) : PageTable[] =>  {
-  const newPageTableConfig : PageTable[] = [];
-  const processToBeAdded : Process = newProcess;
+const AddNewProcessPageTableConfig = (
+  tablePageConfig: PageTable[],
+  newProcess: Process
+): PageTable[] => {
+  const newPageTableConfig: PageTable[] = [];
+  const processToBeAdded: Process = newProcess;
   var i = 0;
   var flag = false;
   var j;
 
-  while(i < tablePageConfig.length){
+  while (i < tablePageConfig.length) {
     j = 0;
     flag = false;
-    while(j < processToBeAdded.npfRefs.length){
-      if(processToBeAdded.npfRefs[j] === tablePageConfig[i].npf){
+    while (j < processToBeAdded.npfRefs.length) {
+      if (processToBeAdded.npfRefs[j] === tablePageConfig[i].npf) {
         tablePageConfig[i].used = true;
         newPageTableConfig.push(tablePageConfig[i]);
         flag = true;
@@ -18,14 +21,14 @@ const AddNewProcessPageTableConfig = (tablePageConfig : PageTable[], newProcess:
       j++;
     }
 
-    if(flag === false){
+    if (flag === false) {
       newPageTableConfig.push(tablePageConfig[i]);
     }
-    
+
     i++;
   }
 
-  return(newPageTableConfig);
-}
+  return newPageTableConfig;
+};
 
 export default AddNewProcessPageTableConfig;

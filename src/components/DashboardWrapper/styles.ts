@@ -16,7 +16,7 @@ export const Left = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;  
+  padding: 25px;
 `;
 
 export const Right = styled.div`

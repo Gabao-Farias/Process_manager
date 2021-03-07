@@ -1,5 +1,5 @@
-const StartProcessesArray = () : Process[] => {
-  return([]);
-}
+const StartProcessesArray = (): Process[] => {
+  return [];
+};
 
 export default StartProcessesArray;
