@@ -6,7 +6,7 @@ import {
   PagesSize,
   VerifyAvailableMemory,
   VerifyAvailableMemoryPercentage
-} from '../../utils';
+} from 'process-manager-functions';
 import {
   PagesTableContainer,
   ItemRow,
