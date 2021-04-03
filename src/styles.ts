@@ -47,6 +47,26 @@ export const HeaderInput = styled.input`
   text-align: center;
 `;
 
+export const Select = styled.select`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  text-align: center;
+`;
+
+export const Option = styled.option`
+  display: flex;
+  flex: 1;
+  text-align: center;
+`;
+
 export const HeaderOption = styled.button`
   flex: 1;
   display: flex;

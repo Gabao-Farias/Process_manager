@@ -7,7 +7,9 @@ import {
   HeaderOption,
   HeaderSmallForm,
   HeaderInput,
-  Wrapper
+  Wrapper,
+  Select,
+  Option
 } from './styles';
 import {
   AddNewProcess,
@@ -31,7 +33,6 @@ function App() {
   const [lastPIDAdded, setLastPIDAdded] = useState(0);
   const [pidInput, setPidInput] = useState('');
   const [pageSize, setPageSize] = useState(1024);
-  const [pageSizeInput, setPageSizeInput] = useState(1024);
   const [processSize, setProcessSize] = useState(0);
   const [tablePageConfig, setTablePageConfig] = useState(
     PagesTableGenerator(8)
@@ -108,17 +109,29 @@ function App() {
               onChange={() => handleColorThemeChange()}
             />
             <HeaderSmallForm choice={colorTheme.choice}>
-              <HeaderInput
+              {/* <HeaderInput
                 type="number"
                 value={pageSizeInput}
                 onChange={(e) => {
                   setPageSizeInput(Number(e.target.value));
                 }}
                 placeholder="Insira o tamanho da página em bytes"
-              />
-              <HeaderOption onClick={() => handleDefinePageSize(pageSizeInput)}>
-                Definir tamanho da página
-              </HeaderOption>
+              /> */}
+              <Select
+                value={pageSize}
+                onChange={({ target }) =>
+                  handleDefinePageSize(Number(target.value))
+                }
+              >
+                <Option value={8192}>8192 bytes</Option>
+                <Option value={4096}>4096 bytes</Option>
+                <Option value={2048}>2048 bytes</Option>
+                <Option value={1024}>1024 bytes</Option>
+                <Option value={512}>512 bytes</Option>
+                <Option value={256}>256 bytes</Option>
+                <Option value={128}>128 bytes</Option>
+                <Option value={64}>64 bytes</Option>
+              </Select>
             </HeaderSmallForm>
             <HeaderSmallForm choice={colorTheme.choice}>
               <HeaderInput
