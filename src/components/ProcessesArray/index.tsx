@@ -14,7 +14,8 @@ const ProcessesArray: FC<ProcessArrayProps> = ({ processArray, tamp }) => {
   return (
     <ProcessArrayContainer choice={choice}>
       <Title choice={choice}>
-        Processos Alocados<br></br>
+        Processos Alocados
+        <br />
         {processArray.length}
       </Title>
       {processArray.map((process) => {

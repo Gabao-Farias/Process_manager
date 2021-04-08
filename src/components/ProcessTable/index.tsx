@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 import React, { FC, useContext } from 'react';
 import { ThemeChoice } from '../../contexts';
 import { InternFragment, InternFragmentPercentage } from '../../utils';
@@ -17,22 +18,25 @@ interface ProcessTableProps {
 
 const ProcessTable: FC<ProcessTableProps> = ({ process, tamp }) => {
   const { choice } = useContext(ThemeChoice);
-  var npl = -1;
+  let npl = -1;
 
   return (
     <ProcessTableContainer choice={choice}>
       <SmallHeader choice={choice} key="processHeader">
         <h3>PID: {process.pid}</h3>
         <SmallHeaderDetails choice={choice}>
-          Tamanho processo<br></br>
+          Tamanho processo
+          <br />
           {process.processSize} Bytes
         </SmallHeaderDetails>
         <SmallHeaderDetails choice={choice}>
-          Páginas ocupadas<br></br>
+          Páginas ocupadas
+          <br />
           {process.busyPages}
         </SmallHeaderDetails>
         <SmallHeaderDetails choice={choice}>
-          Fragmentação interna<br></br>
+          Fragmentação interna
+          <br />
           {InternFragment(tamp, process.busyPages, process.processSize)} Bytes |{' '}
           {InternFragmentPercentage(
             tamp,
@@ -52,7 +56,7 @@ const ProcessTable: FC<ProcessTableProps> = ({ process, tamp }) => {
           </ItemRow>
         </TableRow>
         {process.npfRefs.map((item) => {
-          npl++;
+          npl += 1;
           return (
             <TableRow key={npl}>
               <ItemRow choice={choice}>{item}</ItemRow>

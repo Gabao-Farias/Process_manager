@@ -1,5 +1,4 @@
 import React, { FC, useContext } from 'react';
-import { ThemeChoice } from '../../contexts';
 import {
   InternFragmentPageTable,
   InternFragmentPageTablePercentage,
@@ -7,6 +6,7 @@ import {
   VerifyAvailableMemory,
   VerifyAvailableMemoryPercentage
 } from 'process-manager-functions';
+import { ThemeChoice } from '../../contexts';
 import {
   PagesTableContainer,
   ItemRow,
@@ -35,24 +35,24 @@ const PagesTable: FC<PagesTableProps> = ({
         <h3>Tabela de Página de SO</h3>
         <HeaderItem choice={choice}>
           Memória disponível
-          <br></br>
+          <br />
           {VerifyAvailableMemory(tablePageConfig, tamp)} Bytes |{' '}
           {Math.round(VerifyAvailableMemoryPercentage(tablePageConfig))}%
         </HeaderItem>
         <HeaderItem choice={choice}>
           Fragmentação interna
-          <br></br>
+          <br />
           {InternFragmentPageTable(processArray, tamp)} Bytes |{' '}
           {Math.round(InternFragmentPageTablePercentage(processArray, tamp))}%
         </HeaderItem>
         <HeaderItem choice={choice}>
           Nº de Páginas Físicas
-          <br></br>
+          <br />
           {PagesSize(tamp)} bits
         </HeaderItem>
       </SmallHeader>
 
-      <ItemRow key={'header'}>
+      <ItemRow key="header">
         <SimpleRow choice={choice}>
           <strong>Index</strong>
         </SimpleRow>
