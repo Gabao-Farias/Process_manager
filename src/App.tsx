@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Switch from 'react-switch';
+import { ThemeProvider } from 'styled-components';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
 import { ThemeChoice } from './contexts';
 import {
@@ -22,7 +23,8 @@ import {
   ProcessExists,
   StartProcessesArray,
   VerifyAmmountPageProcess,
-  VerifyAvailablePages
+  VerifyAvailablePages,
+  ColorsTheme
 } from './utils';
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
     PagesTableGenerator(8)
   );
   const [processesArray, setProcessesArray] = useState(StartProcessesArray());
+  const [alternativeTheme, setAlternativeTheme] = useState(ColorsTheme);
 
   function handleColorThemeChange() {
     setThemeSwtich(!themeSwitch);
@@ -99,7 +102,7 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeChoice.Provider value={colorTheme}>
+      <ThemeProvider theme={ColorsTheme[colorTheme.choice]}>
         <Wrapper choice={colorTheme.choice}>
           <HeaderContainer choice={colorTheme.choice}>
             <Switch
@@ -109,14 +112,6 @@ function App() {
               onChange={() => handleColorThemeChange()}
             />
             <HeaderSmallForm choice={colorTheme.choice}>
-              {/* <HeaderInput
-                type="number"
-                value={pageSizeInput}
-                onChange={(e) => {
-                  setPageSizeInput(Number(e.target.value));
-                }}
-                placeholder="Insira o tamanho da página em bytes"
-              /> */}
               <Select
                 value={pageSize}
                 onChange={({ target }) =>
@@ -180,7 +175,7 @@ function App() {
             }
           />
         </Wrapper>
-      </ThemeChoice.Provider>
+      </ThemeProvider>
     </div>
   );
 }

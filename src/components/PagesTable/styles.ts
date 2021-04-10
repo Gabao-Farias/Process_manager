@@ -7,8 +7,8 @@ interface PropsPagesTable {
 
 export const PagesTableContainer = styled.div<ThemeChoice>`
   padding: 10px;
-  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.dark};
-  color: ${({ choice }) => ColorsTheme[choice]?.text.main};
+  background-color: ${({ theme }) => theme.environment.dark};
+  color: ${({ theme }) => theme.text.main};
 
   border-radius: 10px;
   transition: 0.4s;
@@ -27,7 +27,7 @@ export const SimpleRow = styled.div<ThemeChoice>`
   flex: 1;
   display: flex;
   margin: 5px;
-  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.light};
+  background-color: ${({ theme }) => theme.environment.light};
   padding: 4px 10px;
   border-radius: 10px;
   transition: 0.4s;
@@ -36,19 +36,16 @@ export const SimpleRow = styled.div<ThemeChoice>`
 export const Used = styled.div<PropsPagesTable & ThemeChoice>`
   display: flex;
   margin: 5px;
-  background-color: ${({ used, choice }) =>
-    used
-      ? ColorsTheme[choice]?.primary.light
-      : ColorsTheme[choice]?.environment.light};
-  color: ${({ used, choice }) =>
-    used ? ColorsTheme[choice]?.text.dark : ColorsTheme[choice]?.text.main};
+  background-color: ${({ used, theme }) =>
+    used ? theme.primary.light : theme.environment.light};
+  color: ${({ used, theme }) => (used ? theme.text.dark : theme.text.main)};
   padding: 4px 10px;
   border-radius: 10px;
   transition: 0.4s;
 `;
 
 export const SmallHeader = styled.div<ThemeChoice>`
-  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.lighter};
+  background-color: ${({ theme }) => theme.environment.lighter};
   border-radius: 10px;
   padding: 16px 20px;
   margin-bottom: 16px;
@@ -59,7 +56,7 @@ export const SmallHeader = styled.div<ThemeChoice>`
 
 export const HeaderItem = styled.div<ThemeChoice>`
   margin: 8px 0px;
-  background-color: ${({ choice }) => ColorsTheme[choice]?.environment.light};
+  background-color: ${({ theme }) => theme.environment.light};
   border-radius: 10px;
   padding: 5px;
   text-align: center;
