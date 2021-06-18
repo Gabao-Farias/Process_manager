@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Switch from 'react-switch';
 import { ThemeProvider } from 'styled-components';
 import { DashboardWrapper, PagesTable, ProcessesArray } from './components';
-import { ThemeChoice } from './contexts';
 import {
   HeaderContainer,
   HeaderOption,
@@ -27,7 +26,7 @@ import {
   ColorsTheme
 } from './utils';
 
-function App() {
+const App: React.FC = () => {
   const [themeSwitch, setThemeSwtich] = useState(false);
   const [colorTheme, setColorTheme] = useState<ThemeChoice>({
     choice: 'light'
@@ -40,7 +39,6 @@ function App() {
     PagesTableGenerator(8)
   );
   const [processesArray, setProcessesArray] = useState(StartProcessesArray());
-  const [alternativeTheme, setAlternativeTheme] = useState(ColorsTheme);
 
   function handleColorThemeChange() {
     setThemeSwtich(!themeSwitch);
@@ -72,7 +70,6 @@ function App() {
           tablePageConfig
         )
       );
-      console.log(processesArray);
       setTablePageConfig(
         AddNewProcessPageTableConfig(
           tablePageConfig,
@@ -84,8 +81,6 @@ function App() {
           )
         )
       );
-    } else {
-      alert('Memória disponível insuficiente para alocação do processo!');
     }
   }
 
@@ -95,8 +90,6 @@ function App() {
         DestroyProcessPageTable(PID, processesArray, tablePageConfig)
       );
       setProcessesArray(DestroyProcess(PID, processesArray));
-    } else {
-      alert('Não existe nenhum PID correspondente nos processos alocados!');
     }
   }
 
@@ -178,6 +171,6 @@ function App() {
       </ThemeProvider>
     </div>
   );
-}
+};
 
 export default App;

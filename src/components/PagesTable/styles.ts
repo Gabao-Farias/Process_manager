@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ColorsTheme } from '../../utils';
 
 interface PropsPagesTable {
   used: boolean;
