@@ -23,4 +23,3 @@ Happens when process is allocated on a page from memory, but, the page space is 
 Every new process that is allocated on memory, receives an ascending ordered number and unique.
 
 ![image](https://user-images.githubusercontent.com/61251953/122653618-267dcc00-d11c-11eb-9b31-99211b82b2c6.png)
-
